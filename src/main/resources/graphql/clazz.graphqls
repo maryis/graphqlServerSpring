@@ -1,0 +1,38 @@
+type Clazz {
+    id: CompassId!
+    course: Course!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+input ClazzRefInput {
+    id: CompassIdQueryInput!
+}
+
+input ClazzCreateInput {
+    id: CompassIdCreateInput!
+    course: CourseRefInput!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+input ClazzUpdateInput {
+    id: CompassIdQueryInput!
+    course: CourseRefInput!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+extend type Mutation {
+    createClazz(clazz: ClazzCreateInput!): Clazz!
+    updateClazz(clazz: ClazzUpdateInput!): Clazz!
+}
+
+extend type Query {
+    clazzes(page: Int, size: Int): [Clazz]!
+    clazz(id: CompassIdQueryInput!): Clazz
+#    clazzHistory(id: CompassIdQueryInput!, page: Int, size: Int): [Clazz]!
+}

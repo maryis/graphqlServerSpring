@@ -1,0 +1,35 @@
+type Course {
+    id: CompassId!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+input CourseRefInput {
+    id: CompassIdQueryInput!
+}
+
+input CourseCreateInput {
+    id: CompassIdCreateInput!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+input CourseUpdateInput {
+    id: CompassIdQueryInput!
+    startDate: String!
+    code: String!
+    description: String!
+}
+
+extend type Mutation {
+    createCourse(course: CourseCreateInput!): Course!
+    updateCourse(course: CourseUpdateInput!): Course!
+}
+
+extend type Query {
+    courses(page: Int, size: Int): [Course]!
+    course(id: CompassIdQueryInput!): Course
+#    courseHistory(id: CompassIdQueryInput!, page: Int, size: Int): [Course]!
+}

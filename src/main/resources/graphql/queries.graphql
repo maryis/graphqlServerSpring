@@ -1,0 +1,51 @@
+{
+  course(id: {workingSetId: "Sdf", entityId: "lklkn"}) {
+  id{
+    workingSetId
+    entityId
+  }
+    startDate
+    code
+  }
+
+  courses(page:2,size:1){
+    startDate,
+    description
+  }
+}
+
+mutation{
+  createCourse(course:{
+
+    id:{
+      workingSetId:"23"
+      entityId:"45"
+    }
+    startDate:"23223"
+    code:"242"
+    description:"sadca"
+  })
+  {
+    startDate,
+    code
+  }
+}
+{
+  clazz(id:{workingSetId:"dd",entityId:"sd"}){
+    course{
+      code
+    }
+    startDate
+    description
+
+  }
+
+  clazzes(page:2,size:3){
+    course{
+      code
+    }
+    startDate
+    description
+  }
+}
+
